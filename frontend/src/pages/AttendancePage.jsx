@@ -118,7 +118,7 @@ export default function AttendanceMarkPage() {
     const fetchData = async () => {
       if (!currentUser || !courseId) return;
       try {
-        const res = await axios.get(`http://localhost:5000/api/attendance/${courseId}`, {
+        const res = await axios.get(`https://studenthub-gamma.vercel.app/api/attendance/${courseId}`, {
           headers: { 'user-id': currentUser.id }
         });
         
@@ -154,7 +154,7 @@ export default function AttendanceMarkPage() {
     const dateKey = d.toLocaleDateString('en-CA'); 
 
     try {
-      await axios.post('http://localhost:5000/api/attendance/mark', {
+      await axios.post('https://studenthub-gamma.vercel.app/api/attendance/mark', {
         courseCode: courseId,
         date: dateKey,
         status

@@ -103,7 +103,7 @@ export default function ProfilePage() {
   const fetchProfile = async () => {
     if (!currentUser) return;
     try {
-      const res = await axios.get('http://localhost:5000/api/profile', {
+      const res = await axios.get('https://studenthub-gamma.vercel.app/api/profile', {
         headers: { 'user-id': currentUser.id }
       });
       console.log(res.data);
@@ -144,7 +144,7 @@ export default function ProfilePage() {
   // Save Changes (Profile Info Only)
   const handleSave = async () => {
     try {
-      await axios.put('http://localhost:5000/api/profile/update', formData, {
+      await axios.put('https://studenthub-gamma.vercel.app/api/profile/update', formData, {
         headers: { 'user-id': currentUser.id }
       });
       setProfile(formData); 

@@ -49,7 +49,7 @@ export default function ExamSchedulePage() {
     
     try {
       // Call our new backend route
-      const res = await axios.get(`http://localhost:5000/api/exam/schedule?rollNo=${rollNo}`);
+      const res = await axios.get(`https://studenthub-gamma.vercel.app/api/exam/schedule?rollNo=${rollNo}`);
       setExams(res.data);
     } catch (err) {
       console.error(err);

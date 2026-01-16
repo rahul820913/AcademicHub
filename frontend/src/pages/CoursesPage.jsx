@@ -60,7 +60,7 @@ export default function CoursesPage() {
     const fetchCoursesFromTimetable = async () => {
       if (!currentUser) return;
       try {
-        const res = await axios.get('http://localhost:5000/api/timetable/summary', {
+        const res = await axios.get('https://studenthub-gamma.vercel.app/api/timetable/summary', {
             headers: { 'user-id': currentUser.id }
         });
         

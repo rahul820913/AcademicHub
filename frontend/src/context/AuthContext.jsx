@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   // Create an Axios instance for cleaner code
   const api = axios.create({
-    baseURL: 'http://localhost:5000/api/auth',
+    baseURL: 'https://studenthub-gamma.vercel.app/api/auth',
   });
 
   // 1. Check for existing session on mount (Persistence)

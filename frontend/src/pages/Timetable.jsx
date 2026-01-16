@@ -184,7 +184,7 @@ export default function TimetablePage() {
     const fetchSchedule = async () => {
       if (!currentUser) return;
       try {
-        const res = await axios.get('http://localhost:5000/api/timetable', {
+        const res = await axios.get('https://studenthub-gamma.vercel.app/api/timetable', {
           headers: { 'user-id': currentUser.id }
         });
         setSchedule(res.data);
@@ -201,7 +201,7 @@ export default function TimetablePage() {
   const handleAddClass = async (newClassData) => {
     setActionLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/timetable', newClassData, {
+      const res = await axios.post('https://studenthub-gamma.vercel.app/api/timetable', newClassData, {
         headers: { 'user-id': currentUser.id }
       });
       setSchedule([...schedule, res.data]); 
@@ -222,7 +222,7 @@ export default function TimetablePage() {
     setSchedule(schedule.filter(c => c.id !== classId)); 
 
     try {
-      await axios.delete(`http://localhost:5000/api/timetable/${classId}`, {
+      await axios.delete(`https://studenthub-gamma.vercel.app/api/timetable/${classId}`, {
         headers: { 'user-id': currentUser.id }
       });
     } catch (err) {

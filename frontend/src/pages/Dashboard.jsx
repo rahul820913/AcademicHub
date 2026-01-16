@@ -145,11 +145,11 @@ export default function DashboardPage() {
         const headers = { 'user-id': currentUser.id };
         
         // 1. Get Schedule
-        const scheduleRes = await axios.get('http://localhost:5000/api/dashboard/schedule/today', { headers });
+        const scheduleRes = await axios.get('https://studenthub-gamma.vercel.app/api/dashboard/schedule/today', { headers });
         setSchedule(scheduleRes.data);
 
         // 2. Get Stats (My Courses)
-        const statsRes = await axios.get('http://localhost:5000/api/dashboard/stats', { headers });
+        const statsRes = await axios.get('https://studenthub-gamma.vercel.app/api/dashboard/stats', { headers });
         setStats(statsRes.data);
 
       } catch (err) {
@@ -165,7 +165,7 @@ export default function DashboardPage() {
   // Mark Attendance Function
   const handleMarkAttendance = async (timetableId, status) => {
     try {
-      await axios.post('http://localhost:5000/api/dashboard/mark', 
+      await axios.post('https://studenthub-gamma.vercel.app/api/dashboard/mark', 
         { timetable_id: timetableId, status }, 
         { headers: { 'user-id': currentUser.id } }
       );

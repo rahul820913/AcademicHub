@@ -33,5 +33,9 @@ app.use('/api/attendance', Attendance);
 app.use('/api/exam', exam);
 app.use('/api/profile', profile);
 
+// app.listen(process.env.PORT || 5000, () => {
+//   console.log(`Server is running on port ${process.env.PORT || 5000}`);
+// });
 
-export default app;
+
+module.exports = app;

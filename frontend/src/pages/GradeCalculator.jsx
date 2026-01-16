@@ -80,7 +80,7 @@ export default function GradeCalculatorPage() {
       if (!currentUser) return;
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/grades/${selectedCourse}`, {
+        const res = await axios.get(`https://studenthub-gamma.vercel.app/api/grades/${selectedCourse}`, {
             headers: { 'user-id': currentUser.id }
         });
         
@@ -107,7 +107,7 @@ export default function GradeCalculatorPage() {
   const saveScore = async (field, value) => {
     if (!currentUser) return;
     try {
-        await axios.post('http://localhost:5000/api/grades/save', {
+        await axios.post('https://studenthub-gamma.vercel.app/api/grades/save', {
             courseCode: selectedCourse,
             assessmentType: field,
             score: value,
