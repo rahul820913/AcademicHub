@@ -1,28 +1,17 @@
 {
   "version": 2,
-
   "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node"
-    }
+    { "src": "backend/server.js", "use": "@vercel/node" },
+    { "src": "frontend/dist/**/*", "use": "@vercel/static" }
   ],
-
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/dist/index.html"
-    }
-  ]
+    { "src": "/api/(.*)", "dest": "backend/server.js" },
+    { "src": "/(.*)", "dest": "frontend/dist/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "frontend/dist/index.html" }
+  ],
+  "env": {
+    "DATABASE_URL":"postgresql://neondb_owner:npg_U3DN7fBClgZH@ep-lively-mud-ahi068ft-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require",
+    "JWT_SECRET": "dahiadhofadhpasuaopsfaphiosofhasiydasifpahfugadofiadphfgaospdfkadhfadpfafdhfdjpfadfpdafjadsjf"
+  }
 }
