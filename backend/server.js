@@ -33,13 +33,5 @@ app.use('/api/attendance', Attendance);
 app.use('/api/exam', exam);
 app.use('/api/profile', profile);
 
-app.get('/', (req, res) => {
-  res.send('StudentHub API is running and connected to Neon DB!');
-});
 
-
-// --- Start Server ---
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+export default app;
